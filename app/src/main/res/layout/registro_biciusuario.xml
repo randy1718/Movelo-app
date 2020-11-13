@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CEFFEF">
+
+    <Button
+        android:id="@+id/registrarBiciusuario"
+        android:layout_width="413dp"
+        android:layout_height="81dp"
+        android:background="@drawable/boton"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="SIGN UP"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.899" />
+
+    <EditText
+        android:id="@+id/nombreBiciusuario"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+        android:layout_width="332dp"
+        android:layout_height="63dp"
+        android:autofillHints=""
+        android:background="#F1FFFA"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="@string/nombre_completo"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/registrarBiciusuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.342" />
+
+    <EditText
+        android:id="@+id/emailBiciusuario"
+        style="@style/Base.Widget.MaterialComponents.TextInputEditText"
+        android:layout_width="332dp"
+        android:layout_height="63dp"
+        android:autofillHints=""
+        android:background="#F1FFFA"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/registrarBiciusuario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.507" />
+
+    <EditText
+        android:id="@+id/passwordBiciusuario"
+        android:layout_width="332dp"
+        android:layout_height="63dp"
+        android:background="#F1FFFA"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="  Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
+
+    <EditText
+        android:id="@+id/conpasswordBiciusuario"
+        android:layout_width="332dp"
+        android:layout_height="63dp"
+        android:background="#F1FFFA"
+        android:ems="10"
+        android:fontFamily="@font/poppins_semibold"
+        android:hint="  Confirm password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <TextView
+        android:id="@+id/mensaje"
+        android:layout_width="364dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registrarBiciusuario"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

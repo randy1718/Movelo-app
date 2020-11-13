@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fontFamily="@font/poppins_semibold">
+
+    <item
+        android:id="@+id/cuenta"
+        android:enabled="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:icon="@drawable/account"
+        android:title="@string/mi_cuenta" />
+    <item
+        android:id="@+id/homePage"
+        android:enabled="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:icon="@drawable/home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/arboles"
+        android:enabled="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:icon="@drawable/arbol"
+        android:title="@string/arboles"/>
+</menu>
