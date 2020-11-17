@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,23 +21,30 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Ingreso extends AppCompatActivity {
+public class Ingreso extends AppCompatActivity implements Login.View{
 
     public static String emailGuardado;
+    private EditText email,pass;
+    private Login.Presenter presenter;
+    HerokuService2 service;
+    String res="Biciusuario";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ingreso);
         emailGuardado="";
+        presenter=new IngresoPresenter(this);
 
         final Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://chilling-castle-88137.herokuapp.com/")
                 .build();
 
-        final HerokuService2 service = retrofit.create(HerokuService2.class);
+        service = retrofit.create(HerokuService2.class);
         final TextView textView = findViewById(R.id.mensajeIngreso);
         final EditText pEmail=findViewById(R.id.IngresoEmail);
+        email=pEmail;
         final EditText pPassword=findViewById(R.id.PasswordIngreso);
+        pass=pPassword;
 
         Button boton = findViewById(R.id.IngresoApp);
 
@@ -95,5 +103,62 @@ public class Ingreso extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void usuarioValido() {
+        startActivity(new Intent(Ingreso.this,FinalActivity.class));
+    }
+
+    @Override
+    public void error() {
+        Toast.makeText(this,"El usuario es invalido",Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public String getUsername() {
+        return email.getText().toString();
+    }
+
+    @Override
+    public String getPassword() {
+        return pass.getText().toString();
+    }
+
+    public void validarUsuario(String email,String pass){
+        //final TextView ress=findViewById(R.id.mensajeIngreso);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://chilling-castle-88137.herokuapp.com/")
+                .build();
+        HerokuService2 servic = retrofit.create(HerokuService2.class);
+
+            Call<ResponseBody> call = servic.ingreso(email, pass);
+            call.enqueue(new Callback<ResponseBody>() {
+                @Override
+                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                    try {
+
+                        String respuesta = response.body().string();
+                       res=respuesta;
+                        //Log.d("respuesta: ", answer[0]);
+                        if (respuesta.equals("Biciusuario")) {
+                            Intent p = new Intent(Ingreso.this, MainPage.class);
+                            startActivity(p);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+    }
+
+    public String getRes(){
+        return res;
     }
 }

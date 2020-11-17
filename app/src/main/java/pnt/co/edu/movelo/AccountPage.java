@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.transition.Explode;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -133,6 +134,16 @@ public class AccountPage extends AppCompatActivity {
                         break;
                     case R.id.homePage:
                         Intent h=new Intent(AccountPage.this,MainPage.class);
+                        SharedPreferences prefs=getSharedPreferences("Place",Context.MODE_PRIVATE);
+                        final String lugar=prefs.getString("place","");
+                        h.putExtra("place",lugar);
+                        SharedPreferences pref1=getSharedPreferences("ubicacionlat",Context.MODE_PRIVATE);
+                        SharedPreferences pref2=getSharedPreferences("ubicacionlon",Context.MODE_PRIVATE);
+                        final String latitud=pref1.getString("ubicacionLat","");
+                        final String longitud=pref2.getString("ubicacionLon","");
+                        h.putExtra("lat",latitud);
+                        h.putExtra("lon",longitud);
+                        Log.d("Nombre place ",lugar);
                         startActivity(h, ActivityOptions.makeSceneTransitionAnimation(AccountPage.this).toBundle());
                         finish();
                         /*if(fm.findFragmentByTag("home")==null) {

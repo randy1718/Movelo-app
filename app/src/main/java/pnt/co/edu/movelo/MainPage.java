@@ -704,7 +704,7 @@ public class MainPage extends FragmentActivity implements OnMapReadyCallback {
                 //Toast.makeText(getApplicationContext(), "Distancia coordenadas: "+distanciaCorta, Toast.LENGTH_LONG).show();
 
                 polylineOptions.addAll(points);
-                polylineOptions.width(30f);
+                polylineOptions.width(25f);
                 polylineOptions.color(Color.parseColor("#02717C")); // Color de Movelo
                 polylineOptions.geodesic(true);
             }
